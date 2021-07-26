@@ -170,6 +170,7 @@ option(ENABLE_NET "Enable Net" ON)
 
 option(ENABLE_SEVENZIP "Enable SevenZip" OFF)
 option(ENABLE_ZIP "Enable Zip" ON)
+option(ENABLE_SERIAL "Enable Serial" ON)
 option(ENABLE_CPPPARSER "Enable C++ parser" OFF)
 option(ENABLE_POCODOC "Enable Poco Documentation Generator" OFF)
 option(ENABLE_PAGECOMPILER "Enable PageCompiler" ON)
@@ -390,6 +391,11 @@ endif()
 if(EXISTS ${PROJECT_SOURCE_DIR}/Zip AND ENABLE_ZIP)
 	add_subdirectory(Zip)
 	list(APPEND Poco_COMPONENTS "Zip")
+endif()
+
+if(EXISTS ${PROJECT_SOURCE_DIR}/Serial AND ENABLE_SERIAL)
+	add_subdirectory(Serial)
+	list(APPEND Poco_COMPONENTS "Serial")
 endif()
 
 if(APRUTIL_FOUND AND APACHE_FOUND AND
